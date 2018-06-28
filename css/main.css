@@ -13,3 +13,35 @@ div {
 }
 
 /* pahe heading h1*/
+
+.page-header {
+  width: 100%;
+}
+
+.inner-header {
+  width: 100%;
+  display: flex;
+}
+
+.bars {
+  flex: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 2em;
+  color: blue;
+
+}
+
+.heading {
+  flex: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.trophy {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 2em;
+  color: blue;
+}
