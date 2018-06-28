@@ -88,6 +88,10 @@ input {
   text-align: center;
 }
 
+input:focus {
+  outline: none;
+}
+
 #user-name {
 }
 
