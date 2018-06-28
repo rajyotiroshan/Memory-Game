@@ -16,6 +16,7 @@ div {
 
 .page-header {
   width: 100%;
+  margin-top: 2em;
 }
 
 .inner-header {
@@ -24,7 +25,7 @@ div {
 }
 
 .bars {
-  flex: 0;
+  display: none;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 2em;
@@ -34,14 +35,28 @@ div {
 
 .heading {
   flex: 1;
+  font-size: 3em;
   margin-top: 0;
   margin-bottom: 0;
-  text-align: center;
+  margin-left: 3em;
+  text-align: left;
+  color: #4a535f;
 }
 
 .trophy {
+  display: none;
   padding-right: 10px;
   padding-left: 10px;
   font-size: 2em;
   color: blue;
+}
+
+/* horizontal line below page header*/
+
+.line-below-header {
+  margin-top: .5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  height: 0;
+  color: #d7e4f4;
 }
