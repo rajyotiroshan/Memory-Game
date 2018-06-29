@@ -176,7 +176,7 @@ input:focus {
   color: darkslategrey;
 }
 
-.score-list-container {
+.scorer-list-container {
   list-style-type: decimal;
   list-style-position: inside;
   padding: 0;
