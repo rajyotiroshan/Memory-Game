@@ -121,5 +121,40 @@ input:focus {
 }
 
 .hr-after-user {
-  margin: 0 0 0 50px;
+  margin: 0 50px 0 50px;
+}
+
+/* game */
+
+.game-heading {
+  text-align: center;
+  margin-top: 0;
+}
+
+.game-extras-container {
+  display: flex;
+  flex-flow: row no wrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+}
+
+.game-extra {
+
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  padding: 10px;
+  background: cornflowerblue;
+}
+
+.card {
+  width: 6em;
+  height: 6em;
+  background-color: darkslategrey;
 }
