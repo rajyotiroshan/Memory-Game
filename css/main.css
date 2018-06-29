@@ -66,7 +66,7 @@ div {
 main {
   display: flex;
   flex-flow: row nowrap;
-  margin-top: 75px;
+  margin-top: 3em;
 }
 
 /* user column*/
@@ -100,6 +100,9 @@ input:focus {
 }
 
 .game-options-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin-top: 40px;
   background-color: #ccbfbf;
   padding: 5px;
@@ -121,10 +124,14 @@ input:focus {
 }
 
 .hr-after-user {
-  margin: 0 50px 0 50px;
+  margin: 3em 50px 0 50px;
 }
 
 /* game */
+
+.game {
+  flex: 1 1;
+}
 
 .game-heading {
   text-align: center;
@@ -154,20 +161,19 @@ input:focus {
 }
 
 .card {
-  width: 6em;
-  height: 6em;
+  min-width: 6em;
+  min-height: 6em;
   background-color: darkslategrey;
 }
 
 /* top scorer */
 
 .hr-after-game {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 3em 50px 0 50px;
 }
 
 .top-scorer  {
-
+  margin-right: 3em;
 }
 
 .ts-heading {
@@ -200,4 +206,25 @@ input:focus {
 .scorer-score {
   padding: 5px;
   margin-left: 10px;
+}
+
+/* footer*/
+
+.hr-after-main {
+  margin: 1em 3em 1em 3em;
+}
+
+.page-footer {
+  width: 100%;
+}
+
+.social-links-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.copyright {
+  text-align: center;
 }
