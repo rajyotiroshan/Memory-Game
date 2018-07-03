@@ -17,7 +17,7 @@ div {
 }
 
 .f-g-m {
-  min-height: 12em; 
+  min-height: 12em;
 }
 /* pahe heading h1*/
 
@@ -228,6 +228,7 @@ input:focus {
   flex-flow: row nowrap;
   justify-content: space-around;
   list-style-type: none;
+  padding: 0;
 }
 
 .copyright {
