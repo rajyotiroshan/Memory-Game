@@ -147,9 +147,9 @@ input:focus {
 .game-extras-container {
   display: flex;
   flex-flow: row no wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style-type: none;
-  padding: 0;
+  padding: 0 10px 0 10px;
 }
 
 .game-extra {
