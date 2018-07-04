@@ -11,15 +11,12 @@ section,
 div {
   box-sizing: border-box;
 }
-/* full screen mode only display game*/
-.full-screen {
-  display: none;
-}
 
-.f-g-m {
-  min-height: 12em;
-}
-/* pahe heading h1*/
+
+
+/**
+* page heading
+*/
 
 .page-header {
   width: 100%;
@@ -33,11 +30,6 @@ div {
 
 .bars {
   display: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 2em;
-  color: blue;
-
 }
 
 .heading {
@@ -50,10 +42,6 @@ div {
 
 .trophy {
   display: none;
-  padding-right: 10px;
-  padding-left: 10px;
-  font-size: 2em;
-  color: blue;
 }
 
 /* horizontal line below page header*/
@@ -235,73 +223,7 @@ input:focus {
   text-align: center;
 }
 
-@media screen and (min-width:200px) and (max-width:768px) {
-  .page-header {
-    margin-top: 1em;
-  }
 
-  .bars {
-    display: block;
-    font-size: 1.5em;
-    margin-left: 1em;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .heading {
-    font-size: 1.5em;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .trophy {
-    display: block;
-    font-size: 1.5em;
-    margin-right: 1em;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .line-below-header {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
-
-  main {
-    margin-top: 16px;
-  }
-
-  .user {
-    display: none;
-  }
-
-  .hr-after-user {
-    display: none;
-  }
-
-  .hr-after-game {
-    display: none;
-  }
-
-  .game {
-    width: 100%;
-    flex: 1 1;
-    padding: 10px;
-  }
-
-  .game-heading {
-      /* no change*/
-  }
-
-  .card {
-    min-height: 4em;
-  }
-
-  .top-scorer {
-    display: none;
-  }
-
-}
 
 @media screen and (min-width:425px) and (max-width:768px) {
   .heading {
@@ -317,6 +239,9 @@ input:focus {
 
   .heading {
     font-size: 2.5em;
+  }
+  .bars {
+    display: block;
   }
    .trophy {
     display: none;
