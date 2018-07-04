@@ -1,0 +1,155 @@
+
+  .page-header {
+    margin-top: 1em;
+  }
+
+  .bars {
+    display: block;
+    font-size: 1.5em;
+    margin-left: 1em;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .heading {
+    font-size: 1.5em;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .trophy {
+    display: block;
+    font-size: 1.5em;
+    margin-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .line-below-header {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+  main {
+    margin-top: 16px;
+  }
+
+  .user {
+    display: none;
+  }
+
+  input {
+    width: 251px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  #user-name {
+  }
+
+  #user-email {
+    margin-top: 25px;
+  }
+
+  .game-options-container {
+    display: block;
+    margin-top: 40px;
+    background-color: inherit;
+    padding: 5px;
+  }
+
+  .game-option {
+    display: inline-block;
+    padding: 30px;
+    background-color: #f7e8e8;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 800;
+  }
+
+  .play-button {
+    margin: 4em 0 0 0;
+    padding: 10px;
+  }
+
+  .game-option:hover,
+  .play-button:hover,
+  .bars:hover,
+  .trophy:hover {
+    cursor: pointer;
+  }
+
+  .hr-after-user {
+    display: none;
+  }
+
+  .hr-after-game {
+    display: none;
+  }
+
+  /* game */
+
+  .game {
+    width: 100%;
+    flex: 1 1;
+    padding: 10px;
+  }
+
+  .game-heading {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .game-extras-container {
+    display: flex;
+    flex-flow: row no wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0 10px 0 10px;
+  }
+
+  .game-extra {
+
+  }
+
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    padding: 10px;
+    background: cornflowerblue;
+  }
+
+  .card {
+    background-color: darkslategrey;
+    min-height: 4em;
+  }
+
+  .top-scorer {
+    display: none;
+  }
+
+/**
+* Dynamic classes
+*/
+
+  /* toggle user on click bar icon */
+  .user-open-close{
+    display:block;
+    position:absolute;
+    z-index:2000;
+    background:lightblue;
+    margin:0;
+    padding:10px;
+    height: 100%;
+    width:100%;
+    text-align: center;
+  }
