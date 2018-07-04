@@ -153,3 +153,17 @@
     width:100%;
     text-align: center;
   }
+
+  /* toggle trophy icon on click trophy icon*/
+
+  .scorer-open-close {
+    display: block;
+    position:absolute;
+    z-index: 2000;
+    background: lightblue;
+    margin:0;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+  }
