@@ -128,11 +128,43 @@
     background: cornflowerblue;
   }
 
-  .card {
-    background-color: darkslategrey;
-    min-height: 4em;
-  }
 
+/*card */
+
+.scene {
+ perspective: 600px;
+}
+.card {
+  background-color: darkslategrey;
+  min-height: 4em;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s;
+	transform-style: preserve-3d;
+
+}
+.card-face {
+	text-align:center;
+	color:white;
+	font-size:2em;
+	backface-visibility: hidden;
+ 	position: absolute;
+  height: 100%;
+  width: 100%;
+
+}
+.front-face {
+  background: inherit;
+}
+
+.back-face {
+  background: inherit;
+  transform: rotateY( 180deg );
+}
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
   .top-scorer {
     display: none;
   }
