@@ -4,6 +4,22 @@ bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 cards = document.querySelectorAll(".card");
 
+/* generate random integer from 1 and 16 */
+function generateRandomNo(){
+	let n = Math.random();// between 0 and 1_
+	n = 8 * n;// 0 and 16
+	n = Math.ceil(n);//integer bw 0 16
+	return n;
+}
+/* randomly assign no from 1-16 to the div.back-face*/
+function assignValueToBackFace(){
+	let randomNO;
+	for(let i=0; i<cards.length; i++){
+		randomNO = generateRandomNo();
+		cards[i].children[1].innerText = randomNO;
+	}
+}
+
 /* bars click listener*/
 function toggleUser(e){
 	let user = document.querySelector(".user");
@@ -45,3 +61,5 @@ trophy.addEventListener("click",toggleScorer);
 for(let i=0; i<cards.length; i++){
 	addClickEvent(cards[i]);
 }
+/* assign no*/
+assignValueToBackFace();
