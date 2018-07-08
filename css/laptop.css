@@ -1,0 +1,16 @@
+.heading {
+  font-size: 3em;
+}
+
+.card {
+  min-height: 6em;
+}
+
+.social-links-container {
+  justify-content: center;
+}
+
+.sl {
+  padding: 0 10px 0 10px;
+  font-size: 2em;
+}

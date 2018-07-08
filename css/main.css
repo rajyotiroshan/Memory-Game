@@ -117,6 +117,14 @@ input:focus {
   margin-left: 5em;
 }
 
+.game-option:hover,
+.play-button:hover,
+.bars:hover,
+.trophy:hover {
+  cursor: pointer;
+}
+
+
 .hr-after-user {
   margin: 3em 50px 0 50px;
 }
@@ -251,69 +259,4 @@ input:focus {
 
 .copyright {
   text-align: center;
-}
-
-
-
-@media screen and (min-width:425px) and (max-width:768px) {
-  .heading {
-    font-size: 2em;
-  }
-
-  .card {
-    min-height: 5em;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width:1024px) {
-
-  .heading {
-    font-size: 2.5em;
-  }
-  .bars {
-    display: block;
-  }
-   .trophy {
-    display: none;
-  }
-
-  .game-heading {
-    font-size: 1.5em;
-  }
-
-  .player-name {
-    font-size: 1.3em;
-  }
-
-  .user {
-    display: none;
-  }
-
-
-  .hr-after-game {
-    display: block;
-  }
-
-  .top-scorer {
-    display: block;
-    margin-top: 2em;
-  }
-}
-
-@media screen and (min-width:1024px) and (max-width:1440px) {
-    .heading {
-      font-size: 3em;
-    }
-
-    .card {
-      min-height: 7em;
-    }
-}
-@media screen and (min-width:1440px) {
-  .heading {
-    font-size: 4em;
-  }
-  .card {
-    min-height: 8em;
-  }
 }
