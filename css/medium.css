@@ -131,6 +131,7 @@
 .back-face {
 }
 .card.is-flipped {
+  transform: rotateY(180deg);
 }
 .top-scorer {
     display: none;

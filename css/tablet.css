@@ -85,6 +85,10 @@
   min-height: 6em;
 }
 
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
 .top-scorer {
   display: block;
   margin-top: 2em;

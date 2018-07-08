@@ -6,6 +6,10 @@
   min-height: 6em;
 }
 
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
 .social-links-container {
   justify-content: center;
 }
