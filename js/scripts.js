@@ -1,10 +1,10 @@
-let bars, trophy, cards;
+let bars, trophy, refresh, full_screen, cards;
 let current_flipped_card=null, previous_flipped_card=null;
 let cardClickedCounter = 0;//no of card currently flipped
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 cards = document.querySelectorAll(".card");
-
+refresh = document.querySelector(".refresh-icon");
 /* generate random integer from 1 and 16 */
 function generateRandomNo(){
 	let n = Math.random();// between 0 and 1
@@ -17,6 +17,7 @@ function assignValueToBackFace(){
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
+		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
 		cards[i].children[1].innerText = randomNO;
 	}
 }
@@ -76,6 +77,8 @@ function cardClickedListener(e) {
 bars.addEventListener("click",toggleUser);
 /*register click event on trophy*/
 trophy.addEventListener("click",toggleScorer);
+/*register click listener to refresh-icon*/
+refresh.addEventListener("click",assignValueToBackFace);
 /* register click listener on card*/
 for(let i=0; i<cards.length; i++){
 	cards[i].addEventListener("click",cardClickedListener);
