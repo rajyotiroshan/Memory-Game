@@ -62,12 +62,18 @@ function cardClickedListener(e) {
 		current_flipped_card.classList.toggle("is-flipped");
 	}
 	if(previous_flipped_card != null && current_flipped_card.lastElementChild.textContent !== previous_flipped_card.lastElementChild.textContent){
+		current_flipped_card.classList.toggle("unmatched");
+		previous_flipped_card.classList.toggle("unmatched");
 		current_flipped_card.classList.toggle("is-flipped");
 		previous_flipped_card.classList.toggle("is-flipped");
+		current_flipped_card.classList.toggle("unmatched");
+		previous_flipped_card.classList.toggle("unmatched");
 	}
 	else {
 		removeHandler(current_flipped_card);
 		removeHandler(previous_flipped_card);
+		current_flipped_card.classList.toggle("matched");
+		previous_flipped_card.classList.toggle("matched");
 	}
 		current_flipped_card = null;
 		previous_flipped_card = null;
