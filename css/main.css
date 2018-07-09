@@ -196,6 +196,15 @@ input:focus {
 .card.is-flipped {
   transform: rotateY(180deg);
 }
+
+.card.matched {
+  box-shadow:1px 1px 1px 1px green;
+}
+
+.card.unmatched {
+  box-shadow:1px 1px 1px 1px red;
+
+}
 /* top scorer */
 
 .hr-after-game {
