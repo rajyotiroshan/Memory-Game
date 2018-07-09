@@ -1,6 +1,10 @@
 .heading {
   font-size: 6em;
 }
+
+.game-extras-container {
+  font-size: 1.8em;
+}
 .card {
   min-height: 10em;
 }

@@ -103,6 +103,7 @@
     justify-content: space-between;
     list-style-type: none;
     padding: 0 10px 0 10px;
+    font-size: 1.3em;
   }
 
   .game-extra {

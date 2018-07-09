@@ -2,6 +2,10 @@
   font-size: 3em;
 }
 
+.game-extras.container {
+  font-size: 1.5em;
+}
+
 .card {
   min-height: 6em;
 }

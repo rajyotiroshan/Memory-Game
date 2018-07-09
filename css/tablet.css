@@ -65,6 +65,10 @@
     padding: 10px;
   }
 
+  .game-extras-container {
+    font-size: 1.3em;
+  }
+
 .user-open-close{
   display:block;
   position:absolute;
