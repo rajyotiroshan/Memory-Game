@@ -1,7 +1,7 @@
 let bars, trophy, refresh, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let cardClickedCounter = 0;
-let isRefreshing = false;//no of card currently flipped
+let isRefreshing = false,isFullScreen=false;//no of card currently flipped
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 cards = document.querySelectorAll(".card");
@@ -88,6 +88,7 @@ function cardClickedListener(e) {
 
 /* full-screen listener*/
 function toggleFullSCreeen(e){
+	isFullScreen = true;
 	game_board.classList.toggle("full-screen");
 }
 
@@ -110,11 +111,15 @@ refresh.addEventListener("click",function(e){
 full_screen_icon.addEventListener("click",toggleFullSCreeen);
 /*exit full screen */
 document.addEventListener("keydown",function(e){
- if(e.code === "Escape" || e.key === "Escape" || e.keycode === 27){
+if(isFullScreen) {
+	if(e.code === "Escape" || e.key === "Escape" || e.keycode === 27){
 		game_board.classList.toggle("full-screen");
-	}else {
-	window.alert("Enter esc key to exit full screen");
-}
+		isFullScreen = false;
+		}
+	else {
+			window.alert("Enter esc key to exit full screen");
+		}
+	}
 });
 /* register click listener on card*/
 for(let i=0; i<cards.length; i++){
