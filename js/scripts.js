@@ -1,6 +1,7 @@
 let bars, trophy, refresh, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
-let cardClickedCounter = 0;//no of card currently flipped
+let cardClickedCounter = 0;
+let isRefreshing = false;//no of card currently flipped
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 cards = document.querySelectorAll(".card");
@@ -19,8 +20,12 @@ function assignValueToBackFace(){
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
+		if(isRefreshing){// if is called as refresh-icon click listener.
 		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
-		cards[i].children[1].innerText = randomNO;
+		setTimeout(function(){cards[i].children[1].innerText = randomNO;},100);
+		continue;
+	}
+	cards[i].children[1].innerText = randomNO;
 	}
 }
 
@@ -93,7 +98,13 @@ bars.addEventListener("click",toggleUser);
 trophy.addEventListener("click",toggleScorer);
 
 /*register click listener to refresh-icon*/
-refresh.addEventListener("click",assignValueToBackFace);
+refresh.addEventListener("click",function(e){
+	//first make isRefreshing true
+	isRefreshing = true;
+	assignValueToBackFace();
+	//make again false
+	isRefreshing = false;
+});
 
 /*register click listener on full_screen_icon*/
 full_screen_icon.addEventListener("click",toggleFullSCreeen);

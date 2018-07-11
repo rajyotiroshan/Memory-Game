@@ -176,7 +176,7 @@
     display:block;
     position:absolute;
     z-index:2000;
-    background:lightblue;
+    background:#139ecc;
     margin:0;
     padding:10px;
     height: 100%;
@@ -190,7 +190,7 @@
     display: block;
     position:absolute;
     z-index: 2000;
-    background: lightblue;
+    background: #139ecc;
     margin:0;
     padding: 10px;
     height: 100%;
