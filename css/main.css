@@ -116,7 +116,7 @@ input:focus {
   padding: 10px;
   margin-left: 5em;
 }
-
+.card,
 .game-option:hover,
 .play-button:hover,
 .bars:hover,

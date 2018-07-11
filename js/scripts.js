@@ -58,12 +58,12 @@ function removeHandler(card){
 
 /*click listener on card*/
 function cardClickedListener(e) {
-	if(current_flipped_card === null){
+	if(current_flipped_card == null){
 		current_flipped_card = e.currentTarget;
 		current_flipped_card.classList.toggle("is-flipped");
 		return;
 	}
-	else if (previous_flipped_card === null) {
+	else if (previous_flipped_card == null) {
 		previous_flipped_card = current_flipped_card;
 		current_flipped_card = e.currentTarget;
 		current_flipped_card.classList.toggle("is-flipped");
