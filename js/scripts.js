@@ -108,7 +108,14 @@ refresh.addEventListener("click",function(e){
 
 /*register click listener on full_screen_icon*/
 full_screen_icon.addEventListener("click",toggleFullSCreeen);
-
+/*exit full screen */
+document.addEventListener("keydown",function(e){
+ if(e.code === "Escape" || e.key === "Escape" || e.keycode === 27){
+		game_board.classList.toggle("full-screen");
+	}else {
+	window.alert("Enter esc key to exit full screen");
+}
+});
 /* register click listener on card*/
 for(let i=0; i<cards.length; i++){
 	cards[i].addEventListener("click",cardClickedListener);
