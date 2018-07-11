@@ -154,6 +154,10 @@ input:focus {
 
 }
 
+.move {
+  padding :0 0 0 3px;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
