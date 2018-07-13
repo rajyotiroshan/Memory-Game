@@ -1,9 +1,10 @@
-let bars, trophy, refresh, full_screen_icon, cards,game_board;
+let bars, trophy, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
-let cardClickedCounter = 0;
+let move_count = 0;
 let isRefreshing = false,isFullScreen=false;//no of card currently flipped
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
+move = document.querySelector(".move");
 cards = document.querySelectorAll(".card");
 refresh = document.querySelector(".refresh-icon");
 full_screen_icon = document.querySelector(".fs-icon");
@@ -66,6 +67,7 @@ function flipCards(card){
 		previous_flipped_card = current_flipped_card;
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
+		move.textContent = ++move_count;
 	}
 }
 
