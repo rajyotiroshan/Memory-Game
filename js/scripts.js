@@ -47,6 +47,7 @@ function assignValueToBackFace(){
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
+		//generate until validate.
 		while(!validateRandomNo(randomNO)){ randomNO = generateRandomNo();}
 		if(isRefreshing){// if is called as refresh-icon click listener.
 		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
@@ -106,6 +107,7 @@ function flipCards(card){
 	if(current_flipped_card == null){
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
+		removeHandler(current_flipped_card);
 		return 1;
 	}
 	else if (previous_flipped_card == null) {
@@ -125,6 +127,7 @@ function cardUnmatched(){
 	previous_flipped_card.classList.toggle("is-flipped");
 	current_flipped_card.classList.toggle("unmatched");
 	previous_flipped_card.classList.toggle("unmatched");
+	previous_flipped_card.addEventListener("click",cardClickedListener);
 }
 
 /* card matched effect*/
