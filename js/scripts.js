@@ -55,32 +55,45 @@ function toggleScorer(e) {
 function removeHandler(card){
 	card.removeEventListener("click", cardClickedListener);
 }
-
-/*click listener on card*/
-function cardClickedListener(e) {
+/* flip  cards */
+function flipCards(card){
 	if(current_flipped_card == null){
-		current_flipped_card = e.currentTarget;
+		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
-		return;
+		return 1;
 	}
 	else if (previous_flipped_card == null) {
 		previous_flipped_card = current_flipped_card;
-		current_flipped_card = e.currentTarget;
+		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
 	}
+}
+
+/*card unmatche effect*/
+function cardUnmatched(){
+	current_flipped_card.classList.toggle("unmatched");
+	previous_flipped_card.classList.toggle("unmatched");
+	current_flipped_card.classList.toggle("is-flipped");
+	previous_flipped_card.classList.toggle("is-flipped");
+	current_flipped_card.classList.toggle("unmatched");
+	previous_flipped_card.classList.toggle("unmatched");
+}
+/* card matched effect*/
+function cardMatched(){
+	removeHandler(current_flipped_card);
+	removeHandler(previous_flipped_card);
+	current_flipped_card.classList.toggle("matched");
+	previous_flipped_card.classList.toggle("matched");
+}
+/*click listener on card*/
+function cardClickedListener(e) {
+	let card = e.currentTarget;
+	if(flipCards(card) == 1){return;};
 	if(previous_flipped_card != null && current_flipped_card.lastElementChild.textContent !== previous_flipped_card.lastElementChild.textContent){
-		current_flipped_card.classList.toggle("unmatched");
-		previous_flipped_card.classList.toggle("unmatched");
-		current_flipped_card.classList.toggle("is-flipped");
-		previous_flipped_card.classList.toggle("is-flipped");
-		current_flipped_card.classList.toggle("unmatched");
-		previous_flipped_card.classList.toggle("unmatched");
+		cardUnmatched();
 	}
 	else {
-		removeHandler(current_flipped_card);
-		removeHandler(previous_flipped_card);
-		current_flipped_card.classList.toggle("matched");
-		previous_flipped_card.classList.toggle("matched");
+		cardMatched();
 	}
 		current_flipped_card = null;
 		previous_flipped_card = null;
