@@ -1,9 +1,10 @@
-let bars, trophy, refresh,move, full_screen_icon, cards,game_board;
+let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
 let isRefreshing = false,isFullScreen=false;//no of card currently flipped
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
+stars = document.querySelectorAll(".star");
 move = document.querySelector(".move");
 cards = document.querySelectorAll(".card");
 refresh = document.querySelector(".refresh-icon");
@@ -56,6 +57,22 @@ function toggleScorer(e) {
 function removeHandler(card){
 	card.removeEventListener("click", cardClickedListener);
 }
+/*decide for star based on move_count*/
+function giveStar(){
+	if(move_count >= 20){//no star condition.
+		//remove first star.
+		stars[0].style.color = "wheat";
+	}
+	//one star condition
+	else if(move_count >= 18 ){//one star condition.
+		//remove 2nd star.
+		stars[1].style.color = "wheat";
+	}
+	else if(move_count >= 14){//two star condition.
+		//remove last star.
+		stars[2].style.color = "wheat";
+	}
+}
 /* flip  cards */
 function flipCards(card){
 	if(current_flipped_card == null){
@@ -68,6 +85,7 @@ function flipCards(card){
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
 		move.textContent = ++move_count;
+		giveStar();
 	}
 }
 
