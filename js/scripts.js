@@ -2,6 +2,7 @@ let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
 let isRefreshing = false,isFullScreen=false;//no of card currently flipped
+let random_no = [];
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 stars = document.querySelectorAll(".star");
@@ -10,6 +11,7 @@ cards = document.querySelectorAll(".card");
 refresh = document.querySelector(".refresh-icon");
 full_screen_icon = document.querySelector(".fs-icon");
 game_board = document.querySelector(".game-board");
+
 /* generate random integer from 1 and 16 */
 function generateRandomNo(){
 	let n = Math.random();// between 0 and 1
@@ -17,11 +19,35 @@ function generateRandomNo(){
 	n = Math.ceil(n);//integer bw 8
 	return n;
 }
+
+/* check if no is generated twice already*/
+function validateRandomNo(n){
+	//check if no is aleady generated once
+	if(!random_no.includes(n)){//if not generated push to random_no
+		random_no.push(n);
+		//return true as no is not generated yet.
+		return true;
+	}
+	else{//is generated once
+		//access it's index
+		let index = random_no.indexOf(n);//gives index of fist occurrence.
+		//check if is generated twice
+		if(random_no.indexOf(n,index+1) === -1){//n does not exist after index.
+			random_no.push(n);
+			return true;
+		}
+		else {//already generated twice
+			return	false;
+		}
+	}
+}
+
 /* randomly assign no from 1-16 to the div.back-face*/
 function assignValueToBackFace(){
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
+		while(!validateRandomNo(randomNO)){ randomNO = generateRandomNo();}
 		if(isRefreshing){// if is called as refresh-icon click listener.
 		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
 		setTimeout(function(){cards[i].children[1].innerText = randomNO;},100);
@@ -57,6 +83,7 @@ function toggleScorer(e) {
 function removeHandler(card){
 	card.removeEventListener("click", cardClickedListener);
 }
+
 /*decide for star based on move_count*/
 function giveStar(){
 	if(move_count >= 20){//no star condition.
@@ -73,6 +100,7 @@ function giveStar(){
 		stars[2].style.color = "wheat";
 	}
 }
+
 /* flip  cards */
 function flipCards(card){
 	if(current_flipped_card == null){
@@ -98,6 +126,7 @@ function cardUnmatched(){
 	current_flipped_card.classList.toggle("unmatched");
 	previous_flipped_card.classList.toggle("unmatched");
 }
+
 /* card matched effect*/
 function cardMatched(){
 	removeHandler(current_flipped_card);
@@ -105,6 +134,7 @@ function cardMatched(){
 	current_flipped_card.classList.toggle("matched");
 	previous_flipped_card.classList.toggle("matched");
 }
+
 /*click listener on card*/
 function cardClickedListener(e) {
 	let card = e.currentTarget;
@@ -142,6 +172,7 @@ refresh.addEventListener("click",function(e){
 
 /*register click listener on full_screen_icon*/
 full_screen_icon.addEventListener("click",toggleFullSCreeen);
+
 /*exit full screen */
 document.addEventListener("keydown",function(e){
 if(isFullScreen) {
@@ -154,9 +185,11 @@ if(isFullScreen) {
 		}
 	}
 });
+
 /* register click listener on card*/
 for(let i=0; i<cards.length; i++){
 	cards[i].addEventListener("click",cardClickedListener);
 }
+
 /* assign no*/
 assignValueToBackFace();
