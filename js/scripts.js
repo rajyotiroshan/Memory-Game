@@ -102,6 +102,16 @@ function giveStar(){
 	}
 }
 
+/* pause */
+function pause(pause_time_ms) {//pause time in sec.
+	let start = new Date().getTime();
+	for(let i =1; i<1e7; i++){
+		if(((new Date().getTime()) - start) > pause_time_ms){
+			break;
+		}
+	}
+}
+
 /* flip  cards */
 function flipCards(card){
 	if(current_flipped_card == null){
@@ -114,6 +124,7 @@ function flipCards(card){
 		previous_flipped_card = current_flipped_card;
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
+		//pause(.5);//for .5sec;
 		move.textContent = ++move_count;
 		giveStar();
 	}
@@ -143,6 +154,8 @@ function cardClickedListener(e) {
 	let card = e.currentTarget;
 	if(flipCards(card) == 1){return;};
 	if(previous_flipped_card != null && current_flipped_card.lastElementChild.textContent !== previous_flipped_card.lastElementChild.textContent){
+		//pause
+	//	pause(500);
 		cardUnmatched();
 	}
 	else {
