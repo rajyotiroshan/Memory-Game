@@ -2,7 +2,7 @@ let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
 let isRefreshing = false,isFullScreen=false;//no of card currently flipped
-let random_no = [];
+let random_no = [],count,id;
 bars = document.querySelector(".bars");
 trophy = document.querySelector(".trophy");
 stars = document.querySelectorAll(".star");
@@ -130,6 +130,15 @@ function flipCards(e){
 		current_flipped_card.classList.toggle("is-flipped");
 		move.textContent = ++move_count;
 		giveStar();
+		//pause(500);
+
+		/*count = 0;
+		id = setInterval(function(){
+			count = count + 1;
+			if(count >=5){//if called 5 times
+				clearInterval(id);
+			}
+		},100);*/
 	}
 
 }
