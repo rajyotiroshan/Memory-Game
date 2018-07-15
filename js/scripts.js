@@ -82,7 +82,9 @@ function toggleScorer(e) {
 
 /*remove click listener on card*/
 function removeHandler(card){
-	card.removeEventListener("click", cardClickedListener);
+	card.removeEventListener("mousedown", flipCards);
+	card.removeEventListener("mouseup", isCardMatched);
+
 }
 
 /*decide for star based on move_count*/
@@ -113,56 +115,59 @@ function pause(pause_time_ms) {//pause time in sec.
 }
 
 /* flip  cards */
-function flipCards(card){
+function flipCards(e){
+	let card  = e.currentTarget;
 	if(current_flipped_card == null){
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
+		//remove handler.
 		removeHandler(current_flipped_card);
-		return 1;
+		return;
 	}
 	else if (previous_flipped_card == null) {
 		previous_flipped_card = current_flipped_card;
 		current_flipped_card = card;
 		current_flipped_card.classList.toggle("is-flipped");
-		//pause(.5);//for .5sec;
 		move.textContent = ++move_count;
 		giveStar();
 	}
+
 }
 
-/*card unmatche effect*/
-function cardUnmatched(){
-	current_flipped_card.classList.toggle("unmatched");
-	previous_flipped_card.classList.toggle("unmatched");
-	current_flipped_card.classList.toggle("is-flipped");
-	previous_flipped_card.classList.toggle("is-flipped");
-	current_flipped_card.classList.toggle("unmatched");
-	previous_flipped_card.classList.toggle("unmatched");
-	previous_flipped_card.addEventListener("click",cardClickedListener);
+/* mouseup event on card handler*/
+function isCardMatched(e){
+		if(cardMatched()){//card content matched
+			//show natched effect on cards.
+			current_flipped_card.classList.toggle("matched");
+			previous_flipped_card.classList.toggle("matched");
+			//remove evt listener on cards.
+			removeHandler(current_flipped_card);
+			removeHandler(previous_flipped_card);
+	}
+	else {//card's content did not match.
+		//show unmatched effect.
+		current_flipped_card.classList.toggle("unmatched");
+		previous_flipped_card.classList.toggle("unmatched");
+		//show front face again or hide content or flip to show front face.
+		current_flipped_card.classList.toggle("is-flipped");
+		previous_flipped_card.classList.toggle("is-flipped");
+		//remove unmatched effect.
+		current_flipped_card.classList.toggle("unmatched");
+		previous_flipped_card.classList.toggle("unmatched");
+		//since card did not match add evt listener again to flipped cards.
+		current_flipped_card.addEventListener("mousedown",flipCards);
+		current_flipped_card.addEventListener("mouseup", isCardMatched);
+		previous_flipped_card.addEventListener("mousedown",flipCards);
+		previous_flipped_card.addEventListener("mouseup",isCardMatched);
+	}
+	//make both cards to nul for next round of mousedown and mouseup evt.
+	current_flipped_card = null;
+	previous_flipped_card = null;
 }
 
 /* card matched effect*/
 function cardMatched(){
-	removeHandler(current_flipped_card);
-	removeHandler(previous_flipped_card);
-	current_flipped_card.classList.toggle("matched");
-	previous_flipped_card.classList.toggle("matched");
-}
-
-/*click listener on card*/
-function cardClickedListener(e) {
-	let card = e.currentTarget;
-	if(flipCards(card) == 1){return;};
-	if(previous_flipped_card != null && current_flipped_card.lastElementChild.textContent !== previous_flipped_card.lastElementChild.textContent){
-		//pause
-	//	pause(500);
-		cardUnmatched();
-	}
-	else {
-		cardMatched();
-	}
-		current_flipped_card = null;
-		previous_flipped_card = null;
+	return current_flipped_card.lastElementChild.textContent === previous_flipped_card.lastElementChild.textContent;
 }
 
 /* full-screen listener*/
@@ -204,7 +209,10 @@ if(isFullScreen) {
 
 /* register click listener on card*/
 for(let i=0; i<cards.length; i++){
-	cards[i].addEventListener("click",cardClickedListener);
+	//on mousedown flip card first time.
+	cards[i].addEventListener("mousedown",flipCards);
+	//on mouseup check euality for card content and perform corresponding effect on cards.
+	cards[i].addEventListener("mouseup",isCardMatched);
 }
 
 /* assign no*/
