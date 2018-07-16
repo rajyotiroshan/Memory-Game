@@ -220,7 +220,12 @@ function toggleFullSCreeen(e){
 
 /* play click listener to start play.*/
 function startPlaying(e){
-
+	name = user_name.value;
+	email = user_email.value;
+	if(user_name == "" || email == "") {//either name or email is not entered.
+		alert("enter your name and email !!");
+		return;
+	}
 }
 
 /* register click event on bars*/
