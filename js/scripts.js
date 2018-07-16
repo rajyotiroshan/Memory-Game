@@ -249,5 +249,12 @@ for(let i=0; i<cards.length; i++){
 	cards[i].addEventListener("mouseup",isCardMatched);
 }
 
+/**
+*	on loadng the page
+*/
+
 /* assign no*/
 assignValueToBackFace();
+
+/* disable game-board*/
+game_board.classList.toggle("game-board-at-start");
