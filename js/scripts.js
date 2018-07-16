@@ -1,3 +1,4 @@
+let user_name,email,game-option,play;
 let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
