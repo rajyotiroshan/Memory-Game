@@ -49,6 +49,9 @@ function assignValueToBackFace(){
 		random_no = [];
 		move_count = 0;
 		move.textContent = move_count;
+		for(star of stars){
+			star.style.color = "unset";
+		}
 	}
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
