@@ -51,7 +51,7 @@ function assignValueToBackFace(){
 		while(!validateRandomNo(randomNO)){ randomNO = generateRandomNo();}
 		if(isRefreshing){// if is called as refresh-icon click listener.
 		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
-		setTimeout(function(){cards[i].children[1].innerText = randomNO;},100);
+		cards[i].children[1].innerText = randomNO;
 		continue;
 	}
 	cards[i].children[1].innerText = randomNO;
