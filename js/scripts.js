@@ -1,4 +1,4 @@
-let user_name,email,game-option,play;
+let user_name,user_email,game_option_icon,game_option_word,play;
 let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
@@ -12,6 +12,13 @@ cards = document.querySelectorAll(".card");
 refresh = document.querySelector(".refresh-icon");
 full_screen_icon = document.querySelector(".fs-icon");
 game_board = document.querySelector(".game-board");
+
+/*user section element.*/
+user_name = document.querySelector("#user-name");
+user_email = document.querySelector("#user-email");
+game_option_icon = document.querySelector(".game-icon");
+game_option_word = document.querySelector(".game-word");
+play = document.querySelector(".play-button");
 
 /* generate random integer from 1 and 16 */
 function generateRandomNo(){
@@ -211,6 +218,11 @@ function toggleFullSCreeen(e){
 	game_board.classList.toggle("full-screen");
 }
 
+/* play click listener to start play.*/
+function startPlaying(e){
+
+}
+
 /* register click event on bars*/
 bars.addEventListener("click",toggleUser);
 
@@ -259,3 +271,4 @@ assignValueToBackFace();
 
 /* disable game-board*/
 game_board.classList.toggle("game-board-at-start");
+play.addEventListener("click",startPlaying);
