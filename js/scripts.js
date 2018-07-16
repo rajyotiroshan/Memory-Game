@@ -47,6 +47,8 @@ function assignValueToBackFace(){
 	//if refreshed make random_no array empty
 	if(isRefreshing){
 		random_no = [];
+		move_count = 0;
+		move.textContent = move_count;
 	}
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
