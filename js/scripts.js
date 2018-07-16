@@ -1,4 +1,4 @@
-let user_name,user_email,game_option_icon,game_option_word,play;
+let user_name,user_email,game_option_icon,game_option_word,game_option,play;
 let bars, trophy,stars, refresh,move, full_screen_icon, cards,game_board;
 let current_flipped_card=null, previous_flipped_card=null;
 let move_count = 0;
@@ -220,11 +220,16 @@ function toggleFullSCreeen(e){
 
 /* play click listener to start play.*/
 function startPlaying(e){
-	name = user_name.value;
-	email = user_email.value;
+	let name = user_name.value;
+	let email = user_email.value;
 	if(user_name == "" || email == "") {//either name or email is not entered.
 		alert("enter your name and email !!");
 		return;
+	}
+	else {
+		//assign game-player-name to display
+		document.querySelector(".player-name").textContent = name;
+		game_board.classList.remove("inactive");
 	}
 }
 
@@ -275,5 +280,5 @@ for(let i=0; i<cards.length; i++){
 assignValueToBackFace();
 
 /* disable game-board*/
-game_board.classList.toggle("game-board-at-start");
+game_board.classList.add("inactive");
 play.addEventListener("click",startPlaying);
