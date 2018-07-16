@@ -44,33 +44,42 @@ function validateRandomNo(n){
 
 /* randomly assign no from 1-16 to the div.back-face*/
 function assignValueToBackFace(){
-	//if refreshed make random_no array empty
+		let randomNO;
+	//if refreshed
 	if(isRefreshing){
-		random_no = [];
+		random_no = [];//restart generating randomNO.
 		move_count = 0;
-		move.textContent = move_count;
-		for(star of stars){
+		move.textContent = move_count;//start counting move from zero.
+		for(star of stars){//start from showning 3 star.
 			star.style.color = "unset";
 		}
-	}
-	let randomNO;
-	for(let i=0; i<cards.length; i++){
+		//start generating random no for each card.
+		for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
 		//generate until validate.
 		while(!validateRandomNo(randomNO)){
 			 randomNO = generateRandomNo();
 		 }
-		if(isRefreshing){// if is called as refresh-icon click listener.
-		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
+		cards[i].classList.remove("is-flipped");
 			if( cards[i].classList.contains("matched")){//card is matched,all listener are removed.
 				//add addEventListener
-				cards[i].onmousedown = flipCards;
-				cards[i].onmouseup = isCardMatched;
+				cards[i].addEventListener("mousedown", flipCards);
+				cards[i].addEventListener("onmouseup", isCardMatched);
 				//remove matched efffect
 				cards[i].classList.remove("matched");
 			}
-	}
-	cards[i].children[1].innerText = randomNO;
+			cards[i].children[1].innerText = randomNO;
+	}}
+	else {
+	//start generating random no for each card.
+	for(let i=0; i<cards.length; i++){
+	randomNO = generateRandomNo();
+	//generate until validate.
+	while(!validateRandomNo(randomNO)){
+		 randomNO = generateRandomNo();
+	 }
+	 cards[i].children[1].innerText = randomNO;
+		}
 	}
 }
 
@@ -221,7 +230,7 @@ full_screen_icon.addEventListener("click",toggleFullSCreeen);
 
 /*exit full screen */
 document.addEventListener("keydown",function(e){
-if(isFullScreen) {
+	if(isFullScreen) {
 	if(e.code === "Escape" || e.key === "Escape" || e.keycode === 27){
 		game_board.classList.toggle("full-screen");
 		isFullScreen = false;
