@@ -44,15 +44,26 @@ function validateRandomNo(n){
 
 /* randomly assign no from 1-16 to the div.back-face*/
 function assignValueToBackFace(){
+	//if refreshed make random_no array empty
+	if(isRefreshing){
+		random_no = [];
+	}
 	let randomNO;
 	for(let i=0; i<cards.length; i++){
 		randomNO = generateRandomNo();
 		//generate until validate.
-		while(!validateRandomNo(randomNO)){ randomNO = generateRandomNo();}
+		while(!validateRandomNo(randomNO)){
+			 randomNO = generateRandomNo();
+		 }
 		if(isRefreshing){// if is called as refresh-icon click listener.
 		cards[i].classList.remove("is-flipped");//for refresh-icon clicked
-		cards[i].children[1].innerText = randomNO;
-		continue;
+			if( cards[i].classList.contains("matched")){//card is matched,all listener are removed.
+				//add addEventListener
+				cards[i].onmousedown = flipCards;
+				cards[i].onmouseup = isCardMatched;
+				//remove matched efffect
+				cards[i].classList.remove("matched");
+			}
 	}
 	cards[i].children[1].innerText = randomNO;
 	}
