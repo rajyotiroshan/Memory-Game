@@ -178,6 +178,11 @@ input:focus {
   bottom: 0;
   z-index: 2000;
 }
+
+.game-board-at-start {
+  pointer-events: none;
+  opacity: .4;
+}
 /*card*/
 .scene {
  perspective: 600px;
